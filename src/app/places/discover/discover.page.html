@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary" >
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>DISCOVER</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  
+  <ion-segment  value="all" (ionChange)="onFilter($event)"  >
+    <ion-segment-button value="all" > 
+      All Places
+    </ion-segment-button>
+    <ion-segment-button value="bookable"> 
+      Bookable Places
+    </ion-segment-button>
+  </ion-segment>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2" class="ion-text-center">
+        <ion-card  [routerLink]="['/' , 'places' , 'tabs' , 'discover' , LoadedPlaces[0].id]">
+          <ion-card-header color="dark">
+            <ion-card-title>
+              {{ LoadedPlaces[0].tittle }}
+            </ion-card-title>
+            <ion-card-subtitle class="ion-margin-top">
+              {{ LoadedPlaces[0].price | currency }} / Night
+
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-img [src]=" LoadedPlaces[0].imageUrl "></ion-img>
+          <ion-card-content>
+            <p text-Center>
+              {{ LoadedPlaces[0].desc }}
+            </p>
+
+          </ion-card-content>
+        </ion-card>
+        <ion-virtual-scroll [items] = "loadedVPlaces" appoxItemHeight = "90px" >
+          <ion-item  *virtualItem = "let place"
+            [routerLink]="['/' , 'places' , 'tabs' , 'discover' , place.id]"
+             default>
+            <ion-thumbnail slot="start">
+              <ion-img [src]="place.imageUrl">
+
+              </ion-img>
+            </ion-thumbnail>
+            <ion-label>
+              <h2> {{ place.tittle }}</h2>
+              <p> {{ place.desc }}</p>
+              <p class="price"> {{ place.price | currency }} / Night</p>
+            </ion-label>
+          </ion-item>
+        </ion-virtual-scroll >
+      </ion-col>
+    </ion-row>
+
+
+
+  </ion-grid>
+
+</ion-content>

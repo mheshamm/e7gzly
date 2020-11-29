@@ -1,0 +1,44 @@
+<ion-app>
+  <ion-menu slot="start">
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>
+          احجزلي
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content color="dark">
+      <ion-list color="dark" class="ion-no-border">
+        <ion-menu-toggle>
+          <ion-item line="none" color="dark" routerLink = "/places/tabs/discover" >
+            <ion-icon name="search" slot="start"></ion-icon>
+            <ion-label>DISCOVER</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item line="none" color="success" routerLink = "/bookings" >
+            <ion-icon name="checkbox-outline" slot="start"></ion-icon>
+            <ion-label>BOOKINGS</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item line="none" color="dark" [routerLink] = "['/' , 'places' , 'tabs' , 'offers' ]" >
+            <ion-icon name="card" slot="start"></ion-icon>
+            <ion-label>OFFERS</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+        <ion-menu-toggle>
+          <ion-item line="none" color="dark" button (click)="onLogOut()" >
+            <ion-icon name="exit" slot="start" color="danger"></ion-icon>
+            <ion-label color="danger">LOGOUT</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+
+
+
+
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet main></ion-router-outlet>
+</ion-app>

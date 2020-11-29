@@ -1,0 +1,53 @@
+ion-label{
+    .price{
+        color: red;
+        text-align: right;
+        padding-top: 2px;
+    }
+    h2 {
+        color :
+        #5260ff ;
+        font-weight: 600;
+    }
+    p{
+        color : black ;
+    }
+    ion-card{
+        ion-card-header {
+            background-color: rgb(43, 43, 43);
+        }
+        ion-card-subtitle{
+            .price{
+                color: rgb(250, 37, 37);
+            }
+
+            
+        }
+        
+    }
+    
+    
+    
+    
+}
+ion-segment {
+    --background :      var(--ion-color-primary);
+    color : white !important ;
+}
+ion-segment-button {
+    
+    color: rgb(194, 194, 194) !important;
+    font-weight: 600;
+}
+
+
+.segment-button-checked {
+    
+    color: rgb(107, 0, 169) !important;
+    opacity: .9;
+}
+.md {
+    .segment-button-checked {
+        color: white !important;
+}
+}

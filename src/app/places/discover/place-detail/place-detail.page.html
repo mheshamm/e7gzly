@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-title class="ion-text-center " slot="primary">{{ LoadedPlace.tittle }} Details</ion-title>
+    <ion-buttons>
+      <ion-back-button slot="start" defaultHref="/places/tabs/discover"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content >
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="8" offset-sm="2" class="ion-text-center">
+        <div class="image">
+          <ion-img id="ia" [src]="LoadedPlace.imageUrl">
+
+          </ion-img>
+          <h3 class="ion-no-padding">
+            {{ LoadedPlace.desc }}
+          </h3>
+        </div>
+
+
+        <div class="pr">
+          <h1 class="ion-no-padding ion-text-center">
+            {{ LoadedPlace.tittle }}
+          </h1>
+
+          
+           <div class="cont">
+<div *ngFor="let accs of LoadedPlace.acc" >
+                  <p *ngIf="accs.includes('Beds')">
+                    <ion-icon name="bed" slot="icon-only"></ion-icon>
+                    {{ LoadedPlace.noBeds }}{{ accs }}
+                  </p>
+                  <p *ngIf="accs.includes('Air Condition')">
+                    <ion-icon name="snow" slot="icon-only"></ion-icon>
+                    {{ accs }}
+                  </p>
+                  <p *ngIf="accs.includes('Pool')">
+                    <ion-icon name="fast-food" slot="icon-only"></ion-icon>
+                    {{ accs }}
+                  </p>
+                </div>
+
+                <div *ngFor="let accs of LoadedPlace.acc.slice(3)" >
+                  <p>{{accs}}</p>
+        </div>
+           </div>
+              
+                
+              
+              
+
+
+
+
+
+
+
+
+
+
+
+
+          
+          <p>
+            {{ LoadedPlace.price | currency }} / Night
+          </p>
+          
+          <ion-button expand="block" fill="solid" class="ion-text-center btnn" (click)="onBooking()" >
+            BOOK
+          </ion-button>
+        
+        </div>
+
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
